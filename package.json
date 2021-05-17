@@ -1,0 +1,19 @@
+{
+  "name": "aframe-websurfaces",
+  "version": "0.1.0",
+  "description": "A component to insert interactable webpages into your aframe scene.",
+  "scripts": {
+    "start": "parcel start examples/example1.html",
+    "build": "parcel build src/websurface.js"
+  },
+  "author": "ryota-mitarai",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "keywords": [
+    "aframe",
+    "websurface",
+    "css3d"
+  ]
+}
