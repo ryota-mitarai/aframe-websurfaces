@@ -1,6 +1,6 @@
 # aframe-websurfaces
 
-A component to insert interactable webpages into your [aframe](https://github.com/aframevr/aframe) scene.
+An [aframe](https://github.com/aframevr/aframe) component for adding interactable web pages to your scene.
 
 ![Example gif](https://github.com/ryota-mitarai/aframe-websurfaces/blob/master/examples/example1.gif)
 
