@@ -36202,9 +36202,6 @@ AFRAME.registerComponent('websurface', {
     camPositionSelector: {
       default: '#cam'
     },
-    camRotationSelector: {
-      default: '#cam'
-    },
     automaticSceneStyling: {
       default: true
     }
@@ -36233,10 +36230,20 @@ AFRAME.registerComponent('websurface', {
       var iframe = document.createElement('iframe');
       iframe.src = data.url;
       iframe.style.border = 'none';
-      var camera = document.querySelector(data.camSelector).object3D.children[1];
-      var cameraRotation = document.querySelector(data.camRotationSelector).object3D;
+      var camera = document.querySelector(data.camSelector).object3D;
       var cameraPosition = document.querySelector(data.camPositionSelector).object3D;
-      var context = new _src.DOMContext(camera, cameraRotation, cameraPosition, el);
+      var perspectiveCamera;
+
+      for (var i in camera.children) {
+        var child = camera.children[i];
+
+        if (child.type == 'PerspectiveCamera') {
+          perspectiveCamera = child;
+          break;
+        }
+      }
+
+      var context = new _src.DOMContext(perspectiveCamera, camera, cameraPosition, el);
       context.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(context.domElement);
       var element = new _src.DOMElement(context, iframe, data.width, data.height);
@@ -36307,7 +36314,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51412" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52670" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
