@@ -36086,10 +36086,8 @@ function () {
    * DOM context instance
    * @param camera  A perspective camera instance to draw from
    */
-  function DOMContext(camera, cameraRotation, cameraPosition, websurfaceEntity) {
+  function DOMContext(camera, websurfaceEntity) {
     //@custom
-    this.cameraRotation = cameraRotation;
-    this.cameraPosition = cameraPosition;
     this.websurfaceEntity = websurfaceEntity; // Set default settings
 
     this.enabled = true; // Init renderer
@@ -36133,10 +36131,14 @@ function () {
 
 
   DOMContext.prototype.update = function () {
-    // Sync CSS camera with WebGL camera
     //@custom
-    this.cssCamera.quaternion.copy(this.cameraRotation.quaternion);
-    this.cssCamera.position.copy(this.cameraPosition.position).multiplyScalar(constants_1.cssFactor); // Render projection
+    var camPos = new three_1.Vector3();
+    var camQuat = new three_1.Quaternion();
+    var camScale = new three_1.Vector3();
+    this.camera.matrixWorld.decompose(camPos, camQuat, camScale); // Sync CSS camera with WebGL camera
+
+    this.cssCamera.quaternion.copy(camQuat);
+    this.cssCamera.position.copy(camPos).multiplyScalar(constants_1.cssFactor); // Render projection
 
     this.cssRenderer.render(this.cssScene, this.cssCamera);
   };
@@ -36199,9 +36201,6 @@ AFRAME.registerComponent('websurface', {
     camSelector: {
       default: '#cam'
     },
-    camPositionSelector: {
-      default: '#cam'
-    },
     automaticSceneStyling: {
       default: true
     }
@@ -36231,7 +36230,6 @@ AFRAME.registerComponent('websurface', {
       iframe.src = data.url;
       iframe.style.border = 'none';
       var camera = document.querySelector(data.camSelector).object3D;
-      var cameraPosition = document.querySelector(data.camPositionSelector).object3D;
       var perspectiveCamera;
 
       for (var i in camera.children) {
@@ -36243,7 +36241,7 @@ AFRAME.registerComponent('websurface', {
         }
       }
 
-      var context = new _src.DOMContext(perspectiveCamera, camera, cameraPosition, el);
+      var context = new _src.DOMContext(perspectiveCamera, el);
       context.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(context.domElement);
       var element = new _src.DOMElement(context, iframe, data.width, data.height);
@@ -36264,7 +36262,6 @@ AFRAME.registerComponent('websurface', {
       if (document.querySelector(data.camSelector).object3D.children[1]) {
         this.el.emit('cam-loaded');
         data.isCamLoaded = true;
-        console.log(data.isCamLoaded);
       }
 
       return;
@@ -36314,7 +36311,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52670" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53063" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

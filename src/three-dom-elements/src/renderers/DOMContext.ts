@@ -1,4 +1,4 @@
-import { PerspectiveCamera, Scene, Vector3 } from 'three';
+import { PerspectiveCamera, Quaternion, Scene, Vector3 } from 'three';
 import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer';
 import { DOMElement } from '../objects/DOMElement';
 import { cssFactor } from '../constants';
@@ -25,8 +25,6 @@ export class DOMContext {
    */
   camera: PerspectiveCamera;
   //@custom
-  cameraRotation: any;
-  cameraPosition: any;
   websurfaceEntity: any;
   /**
    * CSS scene used to contain CSS projections
@@ -37,15 +35,8 @@ export class DOMContext {
    * DOM context instance
    * @param camera  A perspective camera instance to draw from
    */
-  constructor(
-    camera: PerspectiveCamera,
-    cameraRotation: any,
-    cameraPosition: any,
-    websurfaceEntity: any
-  ) {
+  constructor(camera: PerspectiveCamera, websurfaceEntity: any) {
     //@custom
-    this.cameraRotation = cameraRotation;
-    this.cameraPosition = cameraPosition;
     this.websurfaceEntity = websurfaceEntity;
 
     // Set default settings
@@ -99,10 +90,14 @@ export class DOMContext {
    * Updates the DOM context's renderer and camera states
    */
   update() {
-    // Sync CSS camera with WebGL camera
     //@custom
-    this.cssCamera.quaternion.copy(this.cameraRotation.quaternion);
-    this.cssCamera.position.copy(this.cameraPosition.position).multiplyScalar(cssFactor);
+    let camPos = new Vector3();
+    let camQuat = new Quaternion();
+    let camScale = new Vector3();
+    this.camera.matrixWorld.decompose(camPos, camQuat, camScale);
+    // Sync CSS camera with WebGL camera
+    this.cssCamera.quaternion.copy(camQuat);
+    this.cssCamera.position.copy(camPos).multiplyScalar(cssFactor);
 
     // Render projection
     this.cssRenderer.render(this.cssScene, this.cssCamera);

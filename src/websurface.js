@@ -8,7 +8,6 @@ AFRAME.registerComponent('websurface', {
     height: { default: 0.75 },
     frameSkips: { default: 1 },
     camSelector: { default: '#cam' },
-    camPositionSelector: { default: '#cam' },
     automaticSceneStyling: { default: true },
   },
 
@@ -44,7 +43,6 @@ AFRAME.registerComponent('websurface', {
       iframe.style.border = 'none';
 
       const camera = document.querySelector(data.camSelector).object3D;
-      const cameraPosition = document.querySelector(data.camPositionSelector).object3D;
 
       let perspectiveCamera;
       for (var i in camera.children) {
@@ -55,7 +53,7 @@ AFRAME.registerComponent('websurface', {
         }
       }
 
-      const context = new DOMContext(perspectiveCamera, camera, cameraPosition, el);
+      const context = new DOMContext(perspectiveCamera, el);
       context.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(context.domElement);
 
@@ -81,7 +79,6 @@ AFRAME.registerComponent('websurface', {
       if (document.querySelector(data.camSelector).object3D.children[1]) {
         this.el.emit('cam-loaded');
         data.isCamLoaded = true;
-        console.log(data.isCamLoaded);
       }
       return;
     }

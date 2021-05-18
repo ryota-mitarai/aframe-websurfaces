@@ -8,8 +8,10 @@
   <body>
     <a-scene>
       <!--Camera-->
-      <a-entity id="cam" wasd-controls="acceleration: 20;" camera="active: true" look-controls="pointerLockEnabled: true" position="0 1.6 0">
-        <a-cursor position="0 0 -.05" scale=".04 .04 1"></a-cursor>
+      <a-entity id="player" wasd-controls="acceleration: 20;">
+        <a-entity id="cam" camera="active: true" look-controls="pointerLockEnabled: true" position="0 1.6 0">
+          <a-cursor position="0 0 -.05" scale=".04 .04 1"></a-cursor>
+        </a-entity>
       </a-entity>
 
       <!--Environment-->
@@ -17,8 +19,7 @@
       <a-plane rotation="-90 0 0" width="20" height="20" color="#3fa841"></a-plane>
 
       <!--Websurface-->
-      <a-entity websurface="url:https://aframe.io/examples/showcase/moonrider/; width:4; height:2;
-                    camSelector:#cam; camPositionSelector:#cam; camRotationSelector:#cam;" position="2.25 1.5 -4" rotation="0 0 0" scale="1 1 1"></a-entity>
+      <a-entity websurface="url:https://aframe.io/examples/showcase/moonrider/; width:4; height:2; camSelector:#cam;" position="2.25 1.5 -4" rotation="0 0 0" scale="1 1 1"></a-entity>
     </a-scene>
   </body>
 </html>
