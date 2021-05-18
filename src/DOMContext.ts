@@ -45,19 +45,6 @@ export class DOMContext {
     this.cssRenderer = new CSS3DRenderer();
     this.domElement = this.cssRenderer.domElement;
 
-    //@custom click detection for leaving websurface
-    const div = document.createElement('div');
-    div.style.position = 'fixed';
-    div.style.top = '0';
-    div.style.width = '100%';
-    div.style.height = '100%';
-    div.style.zIndex = '-1';
-    this.domElement.appendChild(div);
-
-    div.addEventListener('click', function (event) {
-      websurfaceEntity.sceneEl.style.zIndex = 2;
-    });
-
     // Init camera
     this.cssCamera = new PerspectiveCamera(camera.fov, camera.aspect, camera.near * cssFactor, camera.far * cssFactor);
     this.camera = camera;
@@ -87,8 +74,8 @@ export class DOMContext {
     //@custom
     let camPos = new Vector3();
     let camQuat = new Quaternion();
-    let camScale = new Vector3();
-    this.camera.matrixWorld.decompose(camPos, camQuat, camScale);
+    let _camScale = new Vector3();
+    this.camera.matrixWorld.decompose(camPos, camQuat, _camScale);
     // Sync CSS camera with WebGL camera
     this.cssCamera.quaternion.copy(camQuat);
     this.cssCamera.position.copy(camPos).multiplyScalar(cssFactor);
