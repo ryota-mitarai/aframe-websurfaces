@@ -1,6 +1,6 @@
 import { PerspectiveCamera, Quaternion, Scene, Vector3 } from 'three';
 import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer';
-import { cssFactor } from '../constants';
+import { cssFactor } from './constants';
 
 export class DOMContext {
   /**

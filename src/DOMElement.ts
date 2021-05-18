@@ -1,7 +1,7 @@
 import { Mesh, PlaneGeometry, MeshBasicMaterial, NoBlending, DoubleSide, Vector3, Box3, Color } from 'three';
 import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer';
-import { DOMContext } from '../renderers/DOMContext';
-import { cssFactor } from '../constants';
+import { DOMContext } from './DOMContext';
+import { cssFactor } from './constants';
 
 export class DOMElement extends Mesh {
   /**

@@ -1,7 +1,8 @@
 //uses a modified version of https://github.com/CodyJasonBennett/three-dom-elements
-import { DOMContext, DOMElement } from './three-dom-elements/src';
+import { DOMContext } from './DOMContext';
+import { DOMElement } from './DOMElement';
 
-AFRAME.registerComponent('websurface', {
+export const component = AFRAME.registerComponent('websurface', {
   schema: {
     url: { default: 'https://aframe.io' },
     width: { default: 1 },
