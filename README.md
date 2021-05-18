@@ -1,25 +1,32 @@
 # aframe-websurfaces
 
-A component to insert interactable webpages into your aframe scene.
+A component to insert interactable webpages into your [aframe](https://github.com/aframevr/aframe) scene.
 
 ![Example gif](https://github.com/ryota-mitarai/aframe-websurfaces/blob/master/examples/example1.gif)
 
 ## Usage
 
-Just add the **websurface** component. This will create an iframe and project it's contents onto a plane:
+To create a websurface, just add the **websurface** component. This will create an iframe and project it's contents onto a plane:
 
 ```
 <a-entity websurface></a-entity>
 ```
 
-Additional parameters can be specified:
+### Properties
 
-```
-<a-entity websurface="url:https://aframe.io/aframe/examples/showcase/spheres-and-fog/; width:4; height:2;" position="1 1 -2" rotation="0 45 0" scale="2 2 1"></a-entity>
-```
+| Property         | Description                               | Default             |
+| ---------------- | ----------------------------------------- | ------------------- |
+| url              | the url of the web page                   | "https://aframe.io" |
+| width            | width of the websurface                   | 1                   |
+| height           | height of the websurface                  | 0.75                |
+|                  |                                           |
+| frameSkips       | updates render\* on every n cycles        | 1                   |
+| autoSceneStyling | sets _scene.style.position_ to "absolute" | true                |
+
+\*note - only the shape of the websurface in the scene is affected by this, the web page will play at normal speed
 
 ## Additional Info
 
-The webpage is not actually present inside the aframe scene, only an empty plane is. Because of this, the webpage is not visible in VR.
+The web page is not actually present inside the aframe scene, only an empty plane is. Because of this, the web page is not visible in VR.
 
-Under the hood this uses a modified version of [three-dom-elements](https://github.com/CodyJasonBennett/three-dom-elements), massive props to that.
+Under the hood this uses a modified version of [three-dom-elements](https://github.com/CodyJasonBennett/three-dom-elements), massive props there.
