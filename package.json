@@ -1,6 +1,6 @@
 {
   "name": "aframe-websurfaces",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A component to insert interactable webpages into your aframe scene.",
   "scripts": {
     "start": "parcel start examples/example1.html",
