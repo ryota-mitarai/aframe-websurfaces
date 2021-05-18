@@ -20,4 +20,6 @@ Additional parameters can be specified:
 
 ## Additional Info
 
-The webpage is not actually present inside the aframe scene, only an empty plane is. Because of this, it is not visible in VR.
+The webpage is not actually present inside the aframe scene, only an empty plane is. Because of this, the webpage is not visible in VR.
+
+Under the hood this uses a modified version of [three-dom-elements](https://github.com/CodyJasonBennett/three-dom-elements), massive props to that.
