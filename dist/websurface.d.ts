@@ -9,6 +9,9 @@ export declare const component: import("aframe").ComponentConstructor<{
         height: {
             default: number;
         };
+        isInteractable: {
+            default: boolean;
+        };
         frameSkips: {
             default: number;
         };
@@ -18,4 +21,5 @@ export declare const component: import("aframe").ComponentConstructor<{
     };
     init: () => void;
     tick: () => void;
+    remove: () => void;
 }>;

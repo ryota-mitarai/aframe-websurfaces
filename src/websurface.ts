@@ -71,15 +71,13 @@ export const component = AFRAME.registerComponent('websurface', {
       data.context = context;
       data.element = element;
 
-      window.addEventListener('resize', this.resizeContext());
+      window.addEventListener('resize', () => {
+        context.setSize(window.innerWidth, window.innerHeight);
+      });
     });
 
     data.frames = 0;
     data.isCamLoaded = false;
-  },
-
-  resizeContext: function () {
-    this.data.context.setSize(window.innerWidth, window.innerHeight);
   },
 
   tick: function () {
@@ -109,7 +107,5 @@ export const component = AFRAME.registerComponent('websurface', {
     data.frames++;
   },
 
-  remove: function () {
-    window.removeEventListener('resize', this.resizeContext());
-  },
+  remove: function () {},
 });
