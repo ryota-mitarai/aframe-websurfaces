@@ -1,5 +1,9 @@
 # aframe-websurfaces
 
+[![Latest NPM release](https://img.shields.io/npm/v/aframe-websurfaces.svg)](https://www.npmjs.com/package/aframe-websurfaces)
+[![Minzipped size](https://badgen.net/bundlephobia/minzip/aframe-websurfaces)](https://bundlephobia.com/result?p=aframe-websurfaces)
+[![License](https://img.shields.io/badge/license-MIT-007ec6.svg)](https://github.com/ryota-mitarai/aframe-websurfaces/blob/master/LICENSE)
+
 An [aframe](https://github.com/aframevr/aframe) component for adding interactable web pages to your scene.
 
 ![Example gif](https://github.com/ryota-mitarai/aframe-websurfaces/blob/master/examples/example1.gif)
