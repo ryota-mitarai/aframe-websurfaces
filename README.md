@@ -8,7 +8,7 @@ A component to insert interactable webpages into your [aframe](https://github.co
 
 To create a websurface, just add the **websurface** component. This will create an iframe and project it's contents onto a plane:
 
-```
+```html
 <a-entity websurface></a-entity>
 ```
 
