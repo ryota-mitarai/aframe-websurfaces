@@ -7,7 +7,6 @@ AFRAME.registerComponent('websurface', {
     width: { default: 1 },
     height: { default: 0.75 },
     frameSkips: { default: 1 },
-    camSelector: { default: '#cam' },
     automaticSceneStyling: { default: true },
   },
 
@@ -42,18 +41,8 @@ AFRAME.registerComponent('websurface', {
       iframe.src = data.url;
       iframe.style.border = 'none';
 
-      const camera = document.querySelector(data.camSelector).object3D;
-
-      let perspectiveCamera;
-      for (var i in camera.children) {
-        let child = camera.children[i];
-        if (child.type == 'PerspectiveCamera') {
-          perspectiveCamera = child;
-          break;
-        }
-      }
-
-      const context = new DOMContext(perspectiveCamera, el);
+      const camera = el.sceneEl.camera;
+      const context = new DOMContext(camera, el);
       context.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(context.domElement);
 
@@ -73,13 +62,16 @@ AFRAME.registerComponent('websurface', {
   },
 
   tick: function () {
+    const el = this.el;
     const data = this.data;
 
     if (data.isCamLoaded == false) {
-      if (document.querySelector(data.camSelector).object3D.children[1]) {
+      const camera = el.sceneEl.camera;
+      if (camera) {
         this.el.emit('cam-loaded');
         data.isCamLoaded = true;
       }
+
       return;
     }
 
@@ -91,7 +83,7 @@ AFRAME.registerComponent('websurface', {
         context.update();
       }
       if (element) {
-        element.update(this.el.object3D);
+        element.update(el.object3D);
       }
     }
 

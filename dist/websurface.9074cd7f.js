@@ -36198,9 +36198,6 @@ AFRAME.registerComponent('websurface', {
     frameSkips: {
       default: 1
     },
-    camSelector: {
-      default: '#cam'
-    },
     automaticSceneStyling: {
       default: true
     }
@@ -36229,19 +36226,8 @@ AFRAME.registerComponent('websurface', {
       var iframe = document.createElement('iframe');
       iframe.src = data.url;
       iframe.style.border = 'none';
-      var camera = document.querySelector(data.camSelector).object3D;
-      var perspectiveCamera;
-
-      for (var i in camera.children) {
-        var child = camera.children[i];
-
-        if (child.type == 'PerspectiveCamera') {
-          perspectiveCamera = child;
-          break;
-        }
-      }
-
-      var context = new _src.DOMContext(perspectiveCamera, el);
+      var camera = el.sceneEl.camera;
+      var context = new _src.DOMContext(camera, el);
       context.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(context.domElement);
       var element = new _src.DOMElement(context, iframe, data.width, data.height);
@@ -36256,10 +36242,13 @@ AFRAME.registerComponent('websurface', {
     data.isCamLoaded = false;
   },
   tick: function tick() {
+    var el = this.el;
     var data = this.data;
 
     if (data.isCamLoaded == false) {
-      if (document.querySelector(data.camSelector).object3D.children[1]) {
+      var camera = el.sceneEl.camera;
+
+      if (camera) {
         this.el.emit('cam-loaded');
         data.isCamLoaded = true;
       }
@@ -36276,7 +36265,7 @@ AFRAME.registerComponent('websurface', {
       }
 
       if (element) {
-        element.update(this.el.object3D);
+        element.update(el.object3D);
       }
     }
 
@@ -36311,7 +36300,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53063" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54211" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
