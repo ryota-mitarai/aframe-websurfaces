@@ -7,14 +7,14 @@ AFRAME.registerComponent('websurface', {
     width: { default: 1 },
     height: { default: 0.75 },
     frameSkips: { default: 1 },
-    automaticSceneStyling: { default: true },
+    autoSceneStyling: { default: true },
   },
 
   init: function () {
     const el = this.el;
     const data = this.data;
 
-    if (data.automaticSceneStyling == true) {
+    if (data.autoSceneStyling == true) {
       el.sceneEl.style.position = 'absolute';
     }
 

@@ -36198,7 +36198,7 @@ AFRAME.registerComponent('websurface', {
     frameSkips: {
       default: 1
     },
-    automaticSceneStyling: {
+    autoSceneStyling: {
       default: true
     }
   },
@@ -36206,7 +36206,7 @@ AFRAME.registerComponent('websurface', {
     var el = this.el;
     var data = this.data;
 
-    if (data.automaticSceneStyling == true) {
+    if (data.autoSceneStyling == true) {
       el.sceneEl.style.position = 'absolute';
     }
 
@@ -36300,7 +36300,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54211" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55097" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
