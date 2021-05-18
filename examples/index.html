@@ -2,10 +2,9 @@
 <html lang="en">
   <head>
     <title>Example</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="../src/websurface.js"></script>
   </head>
   <body>
+    <script src="index.js"></script>
     <a-scene>
       <!--Camera-->
       <a-entity id="player" wasd-controls="acceleration: 20;">
@@ -22,8 +21,6 @@
       <a-entity
         websurface="url:https://aframe.io/examples/showcase/moonrider/; width:4; height:2;"
         position="2.25 1.5 -4"
-        rotation="0 0 0"
-        scale="1 1 1"
       ></a-entity>
     </a-scene>
   </body>
