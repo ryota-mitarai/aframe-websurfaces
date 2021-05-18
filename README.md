@@ -23,7 +23,7 @@ To create a websurface, just add the **websurface** component. This will create 
 | frameSkips       | updates render\* on every n cycles        | 1                   |
 | autoSceneStyling | sets _scene.style.position_ to "absolute" | true                |
 
-\*note - only the shape of the websurface in the scene is affected by this, the web page will play at normal speed
+\*note - only the shape of the web page in the scene is affected by this, the web page will still play at normal speed
 
 ## Additional Info
 
