@@ -13,7 +13,7 @@
   "unpkg": "dist/websurface.umd.js",
   "peerDependencies": {
     "aframe": "^1.2.0",
-    "three": ">=0.125.0 < 0.128.0"
+    "three": ">=0.125.0"
   },
   "devDependencies": {
     "@types/aframe": "^1.0.3",
