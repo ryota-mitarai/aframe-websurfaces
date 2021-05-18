@@ -2,6 +2,8 @@
 
 A component to insert interactable webpages into your aframe scene.
 
+![Example gif](https://github.com/ryota-mitarai/aframe-websurfaces/blob/master/examples/example1.gif)
+
 ## Usage
 
 Just add the **websurface** component. This will create an iframe and project it's contents onto a plane:
