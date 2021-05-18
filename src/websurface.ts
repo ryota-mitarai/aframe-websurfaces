@@ -37,7 +37,7 @@ export const component = AFRAME.registerComponent('websurface', {
       data.mouseHasLeftScreen = true;
     });
 
-    el.sceneEl.addEventListener('cam-loaded', function () {
+    el.addEventListener('cam-loaded', function () {
       const iframe = document.createElement('iframe');
       iframe.setAttribute('src', data.url);
       iframe.style.border = 'none';
@@ -53,13 +53,15 @@ export const component = AFRAME.registerComponent('websurface', {
       data.context = context;
       data.element = element;
 
-      window.addEventListener('resize', () => {
-        context.setSize(window.innerWidth, window.innerHeight);
-      });
+      window.addEventListener('resize', this.resizeContext());
     });
 
     data.frames = 0;
     data.isCamLoaded = false;
+  },
+
+  resizeContext: function () {
+    this.data.context.setSize(window.innerWidth, window.innerHeight);
   },
 
   tick: function () {
@@ -72,7 +74,6 @@ export const component = AFRAME.registerComponent('websurface', {
         this.el.emit('cam-loaded');
         data.isCamLoaded = true;
       }
-
       return;
     }
 
@@ -87,7 +88,10 @@ export const component = AFRAME.registerComponent('websurface', {
         element.update(el.object3D);
       }
     }
-
     data.frames++;
+  },
+
+  remove: function () {
+    window.removeEventListener('resize', this.resizeContext());
   },
 });
