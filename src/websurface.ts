@@ -39,7 +39,7 @@ export const component = AFRAME.registerComponent('websurface', {
 
     el.sceneEl.addEventListener('cam-loaded', function () {
       const iframe = document.createElement('iframe');
-      iframe.src = data.url;
+      iframe.setAttribute('src', data.url);
       iframe.style.border = 'none';
 
       const camera = el.sceneEl.camera;

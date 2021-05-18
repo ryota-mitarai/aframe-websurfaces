@@ -5,22 +5,23 @@
   "repository": "https://github.com/ryota-mitarai/aframe-websurfaces",
   "author": "ryota-mitarai",
   "license": "MIT",
-  "source": "src/websurface.js",
+  "source": "src/websurface.ts",
   "main": "dist/websurface.js",
   "exports": "dist/websurface.modern.js",
   "module": "dist/websurface.module.js",
   "unpkg": "dist/websurface.umd.js",
-  "dependencies": {
+  "peerDependencies": {
     "aframe": "^1.2.0",
-    "three": "^0.127.0"
+    "three": ">=0.125.0 < 0.128.0"
   },
   "devDependencies": {
+    "@types/aframe": "^1.0.3",
     "@types/three": "^0.127.0",
     "microbundle": "^0.13.0",
     "typescript": "^4.2.4"
   },
   "scripts": {
-    "build": "microbundle",
+    "build": "microbundle --globals aframe=AFRAME,three=THREE --external aframe,three",
     "dev": "microbundle watch"
   },
   "keywords": [
