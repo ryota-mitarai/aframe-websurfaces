@@ -16,6 +16,8 @@ To create a websurface, just add the **websurface** component. This will create 
 <a-entity websurface></a-entity>
 ```
 
+Besides aframe, the component also requires three(>=0.125.0) to work. The aframe build of three does not include css3d.
+
 ### Properties
 
 | Property         | Description                               | Default             |
@@ -23,11 +25,14 @@ To create a websurface, just add the **websurface** component. This will create 
 | url              | the url of the web page                   | "https://aframe.io" |
 | width            | width of the websurface                   | 1                   |
 | height           | height of the websurface                  | 0.75                |
-|                  |                                           |
+| isInteractable   | enables mouse interaction                 | true                |
+|                  |                                           |                     |
 | frameSkips       | updates render\* on every n cycles        | 1                   |
 | autoSceneStyling | sets _scene.style.position_ to "absolute" | true                |
 
 \*note - only the shape of the web page in the scene is affected by this, the web page will still play at normal speed
+
+The iframe of the websurface can be accessed externally via el.websurface_iframe
 
 ## Additional Info
 
