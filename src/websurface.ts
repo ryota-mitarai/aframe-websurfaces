@@ -68,6 +68,8 @@ export const component = AFRAME.registerComponent('websurface', {
         });
       }
 
+      this.websurface_iframe = iframe;
+
       data.context = context;
       data.element = element;
 
@@ -106,6 +108,4 @@ export const component = AFRAME.registerComponent('websurface', {
     }
     data.frames++;
   },
-
-  remove: function () {},
 });

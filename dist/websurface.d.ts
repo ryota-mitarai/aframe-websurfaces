@@ -21,5 +21,4 @@ export declare const component: import("aframe").ComponentConstructor<{
     };
     init: () => void;
     tick: () => void;
-    remove: () => void;
 }>;
