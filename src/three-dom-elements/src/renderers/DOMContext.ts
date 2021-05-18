@@ -1,6 +1,5 @@
 import { PerspectiveCamera, Quaternion, Scene, Vector3 } from 'three';
 import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer';
-import { DOMElement } from '../objects/DOMElement';
 import { cssFactor } from '../constants';
 
 export class DOMContext {
@@ -60,12 +59,7 @@ export class DOMContext {
     });
 
     // Init camera
-    this.cssCamera = new PerspectiveCamera(
-      camera.fov,
-      camera.aspect,
-      camera.near * cssFactor,
-      camera.far * cssFactor
-    );
+    this.cssCamera = new PerspectiveCamera(camera.fov, camera.aspect, camera.near * cssFactor, camera.far * cssFactor);
     this.camera = camera;
 
     // Init scene

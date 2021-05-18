@@ -2,14 +2,26 @@
   "name": "aframe-websurfaces",
   "version": "1.0.0",
   "description": "A component to insert interactable webpages into your aframe scene.",
-  "scripts": {
-    "start": "parcel start examples/example1.html",
-    "build": "parcel build src/websurface.js"
-  },
+  "repository": "https://github.com/ryota-mitarai/aframe-websurfaces",
   "author": "ryota-mitarai",
   "license": "MIT",
+  "source": "src/websurface.js",
+  "main": "dist/websurface.js",
+  "exports": "dist/websurface.modern.js",
+  "module": "dist/websurface.module.js",
+  "unpkg": "dist/websurface.umd.js",
+  "dependencies": {
+    "aframe": "^1.2.0",
+    "three": "^0.127.0"
+  },
   "devDependencies": {
-    "parcel-bundler": "^1.12.5"
+    "@types/three": "^0.127.0",
+    "microbundle": "^0.13.0",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
   },
   "keywords": [
     "aframe",
