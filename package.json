@@ -7,10 +7,9 @@
   "author": "ryota-mitarai",
   "license": "MIT",
   "files": [
-    "dist/*.js*",
-    "dist/*.ts"
+    "dist/*.js*"
   ],
-  "source": "src/websurface.ts",
+  "source": "src/websurface.js",
   "main": "dist/websurface.js",
   "exports": "dist/websurface.modern.js",
   "module": "dist/websurface.module.js",
@@ -20,10 +19,7 @@
     "three": ">=0.125.0"
   },
   "devDependencies": {
-    "@types/aframe": "^1.0.3",
-    "@types/three": "^0.128.0",
-    "microbundle": "^0.13.0",
-    "typescript": "^4.2.4"
+    "microbundle": "^0.13.0"
   },
   "scripts": {
     "build": "microbundle --globals aframe=AFRAME,three=THREE --external aframe,three",
