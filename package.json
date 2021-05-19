@@ -6,6 +6,10 @@
   "repository": "https://github.com/ryota-mitarai/aframe-websurfaces.git",
   "author": "ryota-mitarai",
   "license": "MIT",
+  "files": [
+    "dist/*.js*",
+    "dist/*.ts"
+  ],
   "source": "src/websurface.ts",
   "main": "dist/websurface.js",
   "exports": "dist/websurface.modern.js",
