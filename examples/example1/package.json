@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "aframe": "^1.2.0",
+    "aframe-websurfaces": "1.1.1",
     "three": "^0.128.0"
   },
   "devDependencies": {
