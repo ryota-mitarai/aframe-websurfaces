@@ -1,6 +1,6 @@
 {
   "name": "aframe-websurfaces",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "https://github.com/ryota-mitarai/aframe-websurfaces",
   "description": "An aframe component for adding interactable web pages to your scene.",
   "repository": "https://github.com/ryota-mitarai/aframe-websurfaces.git",
