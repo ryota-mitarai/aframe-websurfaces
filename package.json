@@ -16,12 +16,12 @@
   "module": "dist/websurface.module.js",
   "unpkg": "dist/websurface.umd.js",
   "peerDependencies": {
-    "aframe": "^1.2.0",
+    "aframe": "*",
     "three": ">=0.125.0"
   },
   "devDependencies": {
     "@types/aframe": "^1.0.3",
-    "@types/three": "^0.127.0",
+    "@types/three": "^0.128.0",
     "microbundle": "^0.13.0",
     "typescript": "^4.2.4"
   },
