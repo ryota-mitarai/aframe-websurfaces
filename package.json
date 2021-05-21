@@ -10,10 +10,10 @@
     "dist/*.js*"
   ],
   "source": "src/websurface.js",
-  "main": "dist/websurface.js",
-  "exports": "dist/websurface.modern.js",
-  "module": "dist/websurface.module.js",
-  "unpkg": "dist/websurface.umd.js",
+  "main": "dist/aframe-websurfaces.js",
+  "exports": "dist/aframe-websurfaces.modern.js",
+  "module": "dist/aframe-websurfaces.module.js",
+  "unpkg": "dist/aframe-websurfaces.umd.js",
   "peerDependencies": {
     "aframe": "*",
     "three": ">=0.125.0"
