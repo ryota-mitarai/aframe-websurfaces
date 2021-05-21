@@ -21,7 +21,7 @@
     "microbundle": "^0.13.0"
   },
   "scripts": {
-    "build": "microbundle --globals aframe=AFRAME,three=THREE --external aframe,three",
+    "build": "microbundle --globals aframe=AFRAME --external aframe",
     "dev": "microbundle watch"
   },
   "keywords": [
