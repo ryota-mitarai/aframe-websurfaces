@@ -15,8 +15,7 @@
   "module": "dist/aframe-websurfaces.module.js",
   "unpkg": "dist/aframe-websurfaces.umd.js",
   "peerDependencies": {
-    "aframe": "*",
-    "three": ">=0.125.0"
+    "aframe": "*"
   },
   "devDependencies": {
     "microbundle": "^0.13.0"
