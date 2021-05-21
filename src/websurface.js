@@ -66,6 +66,9 @@ export const component = AFRAME.registerComponent('websurface', {
   tick: function () {
     const el = this.el;
     const data = this.data;
+
+    if (data.isPaused == true) return;
+
     if (data.isCamLoaded == false) {
       const camera = el.sceneEl.camera;
       if (camera) {
@@ -85,5 +88,16 @@ export const component = AFRAME.registerComponent('websurface', {
       }
     }
     data.frames++;
+  },
+  pause: function () {
+    const data = this.data;
+
+    data.isPaused = true;
+  },
+
+  play: function () {
+    const data = this.data;
+
+    data.isPaused = false;
   },
 });
