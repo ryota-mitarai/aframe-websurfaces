@@ -16,8 +16,6 @@ To create a websurface, just add the **websurface** component. This will create 
 <a-entity websurface></a-entity>
 ```
 
-Besides aframe, the component also requires three(>=0.125.0) to work. The aframe build of three does not include css3d.
-
 ### Properties
 
 | Property         | Description                               | Default             |
