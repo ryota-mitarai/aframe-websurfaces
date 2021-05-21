@@ -6,7 +6,6 @@ export class DOMContext {
    * @param camera  A perspective camera instance to draw from
    */
   constructor(camera, websurfaceEntity) {
-    //@custom
     this.websurfaceEntity = websurfaceEntity;
     // Set default settings
     this.enabled = true;
@@ -40,14 +39,11 @@ export class DOMContext {
    * Updates the DOM context's renderer and camera states
    */
   update() {
-    //@custom
-    let camPos = new THREE.Vector3();
-    let camQuat = new THREE.Quaternion();
-    let _camScale = new THREE.Vector3();
-    this.camera.matrixWorld.decompose(camPos, camQuat, _camScale);
     // Sync CSS camera with WebGL camera
-    this.cssCamera.quaternion.copy(camQuat);
-    this.cssCamera.position.copy(camPos).multiplyScalar(cssFactor);
+    this.camera.getWorldPosition(this.cssCamera.position);
+    this.cssCamera.position.multiplyScalar(cssFactor);
+    this.camera.getWorldQuaternion(this.cssCamera.quaternion);
+
     // Render projection
     this.cssRenderer.render(this.cssScene, this.cssCamera);
   }
