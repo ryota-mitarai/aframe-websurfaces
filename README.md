@@ -6,7 +6,7 @@
 
 An [aframe](https://github.com/aframevr/aframe) component for adding interactable web pages to your scene.
 
-Checkout the [live example](https://codesandbox.io/s/aframe-websurfaces-example-l44vc).
+Check out the [live example](https://codesandbox.io/s/aframe-websurfaces-example-l44vc).
 
 ![Example gif](https://github.com/ryota-mitarai/aframe-websurfaces/blob/master/examples/example1.gif)
 
