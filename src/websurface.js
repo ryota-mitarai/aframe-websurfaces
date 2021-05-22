@@ -64,6 +64,8 @@ export const component = AFRAME.registerComponent('websurface', {
       }
 
       this.websurface_iframe = iframe;
+      this.css3d_context = context;
+
       data.context = context;
       data.element = element;
 
