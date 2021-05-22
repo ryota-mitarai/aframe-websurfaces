@@ -32,7 +32,15 @@ To create a websurface, just add the **websurface** component. This will create 
 
 \*note - only the shape of the web page in the scene is affected by this, the web page will still play at normal speed
 
-The iframe of the websurface can be accessed externally via el.websurface_iframe
+### Data Endpoints
+
+The following are made externally available, which may be helpful for some complex use cases. For normal use these can be ignored.
+
+| Property                    | Description                         |
+| --------------------------- | ----------------------------------- |
+| el.websurface_iframe        | gives the used iframe               |
+| el.css3d_context            | gives the DOMContext                |
+| el.css3d_context.domElement | gives the div that stores the css3d |
 
 ## Additional Info
 
