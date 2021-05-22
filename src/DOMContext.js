@@ -12,6 +12,8 @@ export class DOMContext {
     // Init renderer
     this.cssRenderer = new CSS3DRenderer();
     this.domElement = this.cssRenderer.domElement;
+    this.domElement.style.position = 'fixed';
+    this.domElement.style.zIndex = '-2';
     // Init camera
     this.cssCamera = new THREE.PerspectiveCamera(
       camera.fov,

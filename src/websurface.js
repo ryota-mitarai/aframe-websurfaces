@@ -17,7 +17,7 @@ export const component = AFRAME.registerComponent('websurface', {
 
     if (data.autoSceneStyling == true) {
       el.sceneEl.style.position = 'absolute';
-      el.sceneEl.style.zIndex = '2';
+      el.sceneEl.style.zIndex = '1';
     }
 
     if (data.isInteractable == true) {
@@ -28,11 +28,16 @@ export const component = AFRAME.registerComponent('websurface', {
       el.addEventListener('click', function () {
         if (data.mouseHasLeftScreen == false) return;
         document.exitPointerLock();
-        el.sceneEl.style.zIndex = -2;
+        el.sceneEl.style.zIndex = '-1';
         data.mouseHasLeftScreen = false;
       });
 
+      el.addEventListener('mouseenter', function () {
+        data.context.domElement.style.zIndex = '0';
+      });
+
       el.addEventListener('mouseleave', function () {
+        data.context.domElement.style.zIndex = '-2';
         data.mouseHasLeftScreen = true;
       });
     }
@@ -59,7 +64,7 @@ export const component = AFRAME.registerComponent('websurface', {
         div.style.zIndex = '-1';
         context.domElement.appendChild(div);
         div.addEventListener('click', function () {
-          el.sceneEl.style.zIndex = 2;
+          el.sceneEl.style.zIndex = 1;
         });
       }
 
